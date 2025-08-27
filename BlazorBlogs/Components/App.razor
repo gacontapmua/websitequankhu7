@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <meta name="revised" content="Saturday, January 7th, 2025, 5:00 am" />
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!--<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />-->
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="css/site.css" /> 
+    <link rel="stylesheet" href="css/master.css" /><!--Quyên thêm-->
+    <link rel="stylesheet" href="BlazorBlogs.styles.css" />  
+    <link rel="stylesheet" href="_content/Radzen.Blazor/css/default.css" />
+    <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="//cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <!-- JS libraries (đặt sau blazor.server.js cũng ok) -->
+  
+    <script src="bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="owl.carousel.css">
+    <link rel="stylesheet" href="owl.theme.default.css">
+
+    <link rel="stylesheet" type="text/css" href="jquery.fancybox.min.css">
+    <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
+    <HeadOutlet @rendermode="PageRenderMode" />
+    <RadzenTheme Theme="default" @rendermode="InteractiveServer" />
+</head>
+
+<body>
+    <Routes @rendermode="PageRenderMode" />
+    <script src="_framework/blazor.web.js"></script>
+    <script src="_content/Radzen.Blazor/Radzen.Blazor.js?v=@(typeof(Radzen.Colors).Assembly.GetName().Version)"></script>
+    <script src="quill.js"></script>
+    <script src="_content/Blazored.TextEditor/quill-blot-formatter.min.js"></script>
+    <script src="_content/Blazored.TextEditor/Blazored-BlazorQuill.js"></script>
+    <script async src='analytics.js'></script>
+    <script src="jquery.min.js"></script>
+    <script src="owl.carousel.min.js"></script>
+    <script src="jquery.fancybox.min.js"></script>
+
+    <script src="site.js"></script>
+    <script src="jquery-3.6.0.min.js"></script><!--Quyên thêm-->
+    <script>
+        (function () {
+            window.gaFunctions = {
+                gaTracking: function (gaTrackingID) {
+                    (ga.q = ga.q || []).push(arguments);
+                    ga.l = +new Date;
+                    ga('create', gaTrackingID, 'auto');
+                    ga('send', 'pageview');
+                }
+            };
+            window.DisqusFunctions = {
+                createDisqus: function (disqusThreadElement, disqusSrc) {
+                    var dsq = document.createElement('script');
+                    dsq.type = 'text/javascript';
+                    dsq.async = true;
+                    dsq.src = disqusSrc;
+                    dsq.disqus_container_id = 'disqus_thread';
+                    disqusThreadElement.appendChild(dsq);
+                },
+                resetDisqus: function (newIdentifier, newUrl, newTitle) {
+                    try {
+                        DISQUS.reset({
+                            reload: true,
+                            config: function () {
+                                this.page.identifier = newIdentifier;
+                                this.page.url = newUrl;
+                                this.page.title = newTitle;
+                            }
+                        });
+                    }
+                    catch (err) {
+                        // do nothing
+                    }
+                }
+            };
+        })();
+    </script>
+</body>
+
+</html>
+
+@code {
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+
+    private IComponentRenderMode PageRenderMode =>
+        HttpContext.AcceptsInteractiveRouting() ? InteractiveServer : null;
+}

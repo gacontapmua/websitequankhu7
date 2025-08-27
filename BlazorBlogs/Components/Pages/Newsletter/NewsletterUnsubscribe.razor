@@ -1,0 +1,39 @@
+﻿@page "/NewsletterUnsubscribe/{UserId}"
+
+@using BlazorBlogs.Data;
+@using BlazorBlogs.Data.Models;
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<ApplicationUser> _UserManager
+@inject RoleManager<IdentityRole> _RoleManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IConfiguration _configuration
+@inject DisqusState DisqusState
+@inherits OwningComponentBase<BlogsService>
+
+<br />
+<br />
+@if(success)
+{
+<h4>You have been unsubscribed from the newsletter.</h4>
+}
+
+@code {
+    [Parameter] public string UserId { get; set; }
+    bool success = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Get the user
+        var user = await _UserManager.FindByIdAsync(UserId);
+
+        if (user != null)
+        {
+            // Set NewsletterSubscriber to false
+            user.NewsletterSubscriber = false;
+
+            // Update the user
+            await _UserManager.UpdateAsync(user);
+            success = true;
+        }
+    }
+}

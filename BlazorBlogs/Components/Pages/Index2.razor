@@ -1,0 +1,1078 @@
+﻿@page "/"
+<body>
+
+
+        <div style="width:100%">
+            <div class="inner_body glow-effect" style="background-color:#f4f4f4;padding-top:7px;padding-bottom:7px;border-bottom:1px solid #a3c3b1">
+                <div style="display:grid;grid-template-columns:auto 1fr auto;align-items:center">
+
+                    <style>
+
+                    </style>
+                    <div style="" id="topBreadCrumbs" class="text_body">
+                        <div style="display:inline-block"><a class="text_body" href="/" target="_self" title="Cổng TTĐT Ngành môi trường Phòng KHQSQK7">Bạn đang ở <b>Trang chủ</b></a></div>
+                    </div>
+             
+                    <div>
+                    </div>
+
+                    <div style="position:relative" id="desktopSearchDiv">
+                        <input type="text" id="txtSearch1" style="width:300px;height:32px;padding-right:35px" maxlength="100" value="">
+
+                        <div style="position:absolute;right:0;top:0">
+                            <input type="button" id="btnSearch1" class="button_search" onclick="doSearch(&#39;txtSearch1&#39;)">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script>
+            function showHideMobileMenu() {
+                $('#mobileMenuDiv').toggle('slow');
+            }
+
+            $(function () {
+
+                $("#txtSearch1").keyup(function (event) {
+                    if (event.keyCode === 13) {
+                        doSearch('txtSearch1');
+                    }
+                });
+
+                $("#txtSearch2").keyup(function (event) {
+                    if (event.keyCode === 13) {
+                        doSearch('txtSearch2');
+                    }
+                });
+
+                var postGroupId = eval('-1');
+
+                if (postGroupId > 0)
+                {
+                    $('#-1MenuOuterContainer').addClass('top_menu_item_active');
+                }
+                else {
+                    $('#homeMenuDiv').addClass('top_menu_item_active');
+                }
+            });
+
+            function showMobileMenu(event) {
+                event.stopPropagation();
+
+                $('#mobileMenuItemDiv').toggle();
+
+                $('.header_submenu_panel').each(function (i, e) {
+                    if ($(e).attr('id') != 'mobileMenuItemDiv') {
+                        $(e).hide();
+                    }
+                });
+
+            }
+
+            function doSearch(txtSearchId)
+            {
+                var keyword = $.trim($('#' + txtSearchId).val().replace(/(\.+|\(|\)|\/)/gi, '')).toLowerCase();
+
+                if (keyword.length == 0) {
+                    alert('Xin nhập từ khóa để tìm kiếm');
+                    $('#' + txtSearchId).focus();
+                }
+
+                else if (keyword.length > 100) {
+                    alert('Từ cần tìm quá dài!');
+                    $('#' + txtSearchId).focus();
+                }
+                else {
+                    var urlText = '/';
+                    var url = urlText + urlEncode(keyword) + '-s.html';
+                    self.location.href = url;
+                }
+            }
+        </script>
+
+
+        <div class="inner_body glow-effect bg_white" style="padding-top:20px;padding-bottom:20px">
+            <div class="main_2_columns_layout">
+                <div>
+
+
+                    <style>
+
+
+                        #newsSlide a:hover {
+                            color: #fcec06;
+                        }
+                    </style>
+
+                    <div style="margin-bottom:10px;">
+
+                        <div id="homeSlideShow">
+                            <div id="newsSlideShowLeftColumn" style="overflow: hidden; height: 400px;">
+
+                                <div id="newsItemId_1311" class="news_item news_item_active" style="position:relative">
+
+                                    <div style="position:absolute;top:0;bottom:0;left:0;width:10px;z-index:1;display:none" class="bg_red left_border"></div>
+
+                                    <div style="width:133px;height:86px;overflow:hidden" class="bg_black img-hover-zoom">
+                                        <a href="/NewsPostDetail/1">
+                                            <img src="/images/upload/thumb/15_638915252265488123___266.jpg" id="imgThumb" style="width:100%" class="border_black">
+                                        </a>
+                                    </div>
+
+                                    <div style="height:86px;overflow:hidden;text-align:justify" class="text_4_line news_content">
+                                        <a href="/NewsPostDetail/1" class="text_body" title="Trường Quân sự Quân khu 7 thăm và làm việc tại Trung tâm huấn luyện Lục quân/Quân đội Hoàng gia Campuchia">
+                                            <b>Trường Quân sự Quân khu 7 thăm và làm việc tại Trung tâm huấn luyện Lục quân/Quân đội Hoàng gia Campuchia</b>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div id="newsItemId_1308" class="news_item" style="position:relative">
+
+                                    <div style="position:absolute;top:0;bottom:0;left:0;width:10px;z-index:1;display:none" class="bg_red left_border"></div>
+
+                                    <div style="width:133px;height:86px;overflow:hidden" class="bg_black img-hover-zoom">
+                                        <a href="/NewsPostDetail/2">
+                                            <img src="images/upload/thumb/15_638913086200823604___266.jpg" id="imgThumb" style="width:100%" class="border_black">
+                                        </a>
+                                    </div>
+
+                                    <div style="height:86px;overflow:hidden;text-align:justify" class="text_4_line news_content">
+                                        <a href="/NewsPostDetail/2" class="text_body" title="Trường Quân sự Quân khu 7 tổ chức Lễ khai giảng đào tạo HSQCH và NVCMKT khóa 61 năm 2025">
+                                            <b>Trường Quân sự Quân khu 7 tổ chức Lễ khai giảng đào tạo HSQCH và NVCMKT khóa 61 năm 2025</b>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div id="newsItemId_1306" class="news_item" style="position:relative">
+
+                                    <div style="position:absolute;top:0;bottom:0;left:0;width:10px;z-index:1;display:none" class="bg_red left_border"></div>
+
+                                    <div style="width:133px;height:86px;overflow:hidden" class="bg_black img-hover-zoom">
+                                        <a href="/NewsPostDetail/3" >
+                                            <img src="images/upload/thumb/16_638908679344814190___266.jpg" id="imgThumb" style="width:100%" class="border_black">
+                                        </a>
+                                    </div>
+
+                                    <div style="height:86px;overflow:hidden;text-align:justify" class="text_4_line news_content">
+                                        <a href="/NewsPostDetail/3" class="text_body" title="Đại hội đại biểu Đảng bộ Quân khu 7 tiến hành bầu cử Ban Chấp hành Đảng bộ nhiệm kỳ 2025-2030">
+                                            <b>Đại hội đại biểu Đảng bộ Quân khu 7 tiến hành bầu cử Ban Chấp hành Đảng bộ nhiệm kỳ 2025-2030</b>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div id="newsItemId_1305" class="news_item" style="position:relative">
+
+                                    <div style="position:absolute;top:0;bottom:0;left:0;width:10px;z-index:1;display:none" class="bg_red left_border"></div>
+
+                                    <div style="width:133px;height:86px;overflow:hidden" class="bg_black img-hover-zoom">
+                                        <a href="/NewsPostDetail/4">
+                                            <img src="images/upload/thumb/16_638908672589490613___266.jpg" id="imgThumb" style="width:100%" class="border_black">
+                                        </a>
+                                    </div>
+
+                                    <div style="height:86px;overflow:hidden;text-align:justify" class="text_4_line news_content">
+                                        <a href="/NewsPostDetail/4" class="text_body" title="Đảng bộ Quân khu 7 chủ động, sáng tạo, tự lực, tự cường, đột phá triển khai nhiều chủ trương, đề án, mô hình mới">
+                                            <b>Đảng bộ Quân khu 7 chủ động, sáng tạo, tự lực, tự cường, đột phá triển khai nhiều chủ trương, đề án, mô hình mới</b>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div id="newsItemId_1304" class="news_item" style="position:relative">
+
+                                    <div style="position:absolute;top:0;bottom:0;left:0;width:10px;z-index:1;display:none" class="bg_red left_border"></div>
+
+                                    <div style="width:133px;height:86px;overflow:hidden" class="bg_black img-hover-zoom">
+                                        <a href="/NewsPostDetail/5">
+                                            <img src="images/upload/thumb/16_638908662477393959___266.jpg" id="imgThumb" style="width:100%" class="border_black">
+                                        </a>
+                                    </div>
+
+                                    <div style="height:86px;overflow:hidden;text-align:justify" class="text_4_line news_content">
+                                        <a href="/NewsPostDetail/5" class="text_body" title="Đại hội đại biểu Đảng bộ Quân khu 7 lần thứ XI, nhiệm kỳ 2025-2030 tiến hành phiên trù bị">
+                                            <b>Đại hội đại biểu Đảng bộ Quân khu 7 lần thứ XI, nhiệm kỳ 2025-2030 tiến hành phiên trù bị</b>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+
+                            <!--Phần slide đi kèm mỗi khi click vào ô báo bên trái-->
+                            <div>
+                                <div class="owl-carousel owl-theme owl-loaded owl-drag" id="newsSlide">
+                                    <div class="owl-stage-outer">
+                                        <div class="owl-stage" style="transform: translate3d(-6000px, 0px, 0px); transition: all; width: 24000px;">
+                                            <div class="owl-item cloned" style="width: 600px;">
+                                                <div id="slideItemId_1270" class="bg_black border_black slide_item" style="position:relative;height:400px;overflow-y:hidden">
+                                                    <a href="images/upload/638883384951530522.jpg" id="aFancy" data-fancybox="gallery">
+                                                        <img src="images/upload/thumb/15_638883384951530522___601.jpg" id="imgThumb" style="width:100%;height:auto;display:block;position:absolute;top:50%;transform: translate(0%,-50%);-ms-transform: translate(0%,-50%);-moz-transform: translate(0%,-50%);-webkit-transform: translate(0%,-50%);-o-transform: translate(0%,-50%);">
+                                                    </a>
+
+                                                    <div class="" style="position:absolute;bottom:0px;left:0px;right:0px;height:auto;padding:15px;background: rgba(0,0,0,0.5);">
+                                                        <div class="text_2_line" style="margin-bottom:5px">
+                                                            <a href="/NewsPostDetail/1" class="text_white" title="Học viên Tiểu đoàn 1, phát huy nét đẹp của người quân nhân cách mạng, chào mừng Đại hội đại biểu Đảng bộ Nhà trường lần thứ XII, nhiệm kỳ 2025-2030">
+                                                                <b>Học viên Tiểu đoàn 1, phát huy nét đẹp của người quân nhân cách mạng, chào mừng Đại hội đại biểu Đảng bộ Nhà trường lần thứ XII, nhiệm kỳ 2025-2030</b>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="text_3_line" style="text-align:justify">
+                                                            <a href="/NewsPostDetail/1" class="text_white" title="Học viên Tiểu đoàn 1, phát huy nét đẹp của người quân nhân cách mạng, chào mừng Đại hội đại biểu Đảng bộ Nhà trường lần thứ XII, nhiệm kỳ 2025-2030">
+                                                                Tiếp tục phát huy truyền thống tốt đẹp trong học tập và làm theo tư tưởng, đạo đức, phong cách Hồ Chí Minh. Cán bộ, công nhân viên, học viên Tiểu đoàn 1, Trường Quân sự quân khu 7 đã có nhiều gương “Người tốt, việc tốt”, nhiều hành động quý, những nghĩa cử cao đẹp, góp phần thiết thực Chào mừng Đại hội Đại biểu Đảng bộ Nhà trường lần thứ XII nhiệm kỳ 2025-2030.
+                                                                Theo đó, 20 giờ 40 phút ngày 15/7/2025, lúc đang chuẩn bị thực hiện chế độ điểm danh, điểm quân số tại sân chào cờ Tiểu đoàn 1, Đồng chí Thượng úy Lê Bá Khánh Trình, học viên Lớp Quân sự địa phương khóa 54, đã nhặt được một chiếc ví màu đen ở góc sân chào cờ của Tiểu đoàn. Trong ví có nhiều giấy tờ tùy thân quan trọng và số tiền, hơn sáu triệu đồng mang tên Nguyễn Ngọc Quý. Sau khi nhặt được đồng chí Trình đã trình báo cho Ban chỉ huy tiểu đoàn để tìm chủ nhân của chiếc ví này.
+                                                                Sau khi Ban Chỉ huy tiểu đoàn tiếp nhận từ đồng chí Trình, Ban chỉ huy tiểu đoàn đã thông báo trên loa phát thanh nội bộ của tiểu đoàn. Đến 21 giờ 30 phút cùng ngày, đồng chí Nguyễn Ngọc Quý, thường trú tại khu phố An Mỹ, phường Long Nguyên, thành phố Hồ Chí Minh về dự thi đầu vào đối tượng Liên thông đại học nghành quân sự cơ sở khóa 76, tại Tiểu đoàn 1.&nbsp;Tới nhận lại tài sản của mình bị đánh rơi.&nbsp;Quang cảnh trao nhận đồ giữa đồng chí Thượng úy&nbsp;Lê Bá Khánh Trình và đồng chí Nguyễn Ngọc Quý
+                                                                “Nhặt được của rơi trả người đánh mất” là một nét đẹp trong phẩm chất đạo đức của mỗi con người. Nét đẹp này được gìn giữ thông qua những việc làm tử tế đã lan tỏa và gieo vào lòng mỗi người về niềm tin; về tình đồng chí, đồng đội. Việc làm ý nghĩa của đồng chí Đồng chí Thượng úy Lê Bá Khánh Trình, học viên Lớp Quân sự địa phương khóa 54 đã góp phần thiết thực chào mừng Đại hội Đại biểu Đảng bộ Nhà trường lần thứ XII nhiệm kỳ 2025-2030./.
+                                                                Trung tá Nguyễn Văn Chinh – Phó Tiểu đoàng trưởng Tiểu đoàn 1
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div >
+                                            <div class="owl-item cloned" style="width: 600px;">
+                                               
+                                            </div>
+                                            <!--Phần hiển thị trên slide lớn-->
+                                            <div class="owl-item active" style="width: 600px;">
+                                                <div id="slideItemId_1311" class="bg_black border_black slide_item" style="position:relative;height:400px;overflow-y:hidden">
+                                                    <a href="https://www.tqsqk7.edu.vn/upload/15/638915252265488123.jpg" id="aFancy" data-fancybox="gallery">
+                                                        <img src="https://www.tqsqk7.edu.vn/upload/thumb/15_638915252265488123___601.jpg" id="imgThumb" style="width:100%;height:auto;display:block;position:absolute;top:50%;transform: translate(0%,-50%);-ms-transform: translate(0%,-50%);-moz-transform: translate(0%,-50%);-webkit-transform: translate(0%,-50%);-o-transform: translate(0%,-50%);">
+                                                    </a>
+
+                                                    <div class="" style="position:absolute;bottom:0px;left:0px;right:0px;height:auto;padding:15px;background: rgba(0,0,0,0.5);">
+                                                        <div class="text_2_line" style="margin-bottom:5px">
+                                                            <a href="https://www.tqsqk7.edu.vn/truong-quan-su-quan-khu-7-tham-va-lam-viec-tai-trung-tam-huan-luyen-luc-quan-quan-doi-hoang-gia-campuchia-cgcc-p.html" class="text_white" title="Trường Quân sự Quân khu 7 thăm và làm việc tại Trung tâm huấn luyện Lục quân/Quân đội Hoàng gia Campuchia">
+                                                                <b>Trường Quân sự Quân khu 7 thăm và làm việc tại Trung tâm huấn luyện Lục quân/Quân đội Hoàng gia Campuchia</b>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="text_3_line" style="text-align:justify">
+                                                            <a href="https://www.tqsqk7.edu.vn/truong-quan-su-quan-khu-7-tham-va-lam-viec-tai-trung-tam-huan-luyen-luc-quan-quan-doi-hoang-gia-campuchia-cgcc-p.html" class="text_white" title="Trường Quân sự Quân khu 7 thăm và làm việc tại Trung tâm huấn luyện Lục quân/Quân đội Hoàng gia Campuchia">
+                                                                Thực hiện Kế hoạch đào tạo tiếng Khmer cho cán bộ Lực lượng vũ trang Quân khu 7 tại trường Quân sự Quân khu năm 2025 đã được Tư lệnh Quân khu phê duyệt; căn cứ thỏa ước kết nghĩa giữa hai đơn vị. Ngày 21/8/2025, Đoàn Công tác của Trường Quân sự Quân khu 7 do đồng chí Đại tá Bùi Đình Thành, Bí thư Đảng ủy, Chính uỷ Nhà trường làm trưởng đoàn đã thăm và làm việc với Ban Giám đốc Trung tâm Huấn luyện Lục quân/Quân đội Hoàng gia Campuchia.
+                                                                Quang cảnh Hội nghị
+                                                                Trong buổi làm việc, hai bên trao đổi thống nhất về nội dung, chương trình, thời gian và những kỹ năng cần đạt được trong quá trình thực tập của học viên. Đồng chí Chính ủy Nhà trường cảm ơn sâu sắc đến Ban Giám đốc, cán bộ, giáo viên Trung tâm Huấn huyện Lục quân trong thời gian qua đã tạo điều kiện giúp đỡ, hỗ trợ học viên Nhà trường học tập thực tế tại Trung tâm và nhấn mạnh "Việc tổ chức cho học viên đào tạo tiếng Khmer thực tập tại Trung tâm không chỉ để nâng cao kiến thức, các kỹ năng, mà còn là dịp tăng cường tình cảm, sự hiểu biết, niềm tin giữa Nhân dân, Quân đội hai nước, hai đơn vị và mong muốn tiếp tục nhận được sự hỗ trợ giúp đỡ của Trung tâm, tiếp nối truyền thống đoàn kết quốc tế trong sáng, thủy chung mà các thế hệ cha anh hai dân tộc đã dày công vun đắp".
+                                                                Lãnh đạo hai đơn vị trao đổi thống nhất các nội dung trong Hội nghị
+                                                                Lãnh đạo Trung tâm Huấn luyện Lục quân Campuchia bày tỏ niềm vui mừng, vinh dự được đón tiếp Đoàn Công tác của Trường Quân sự Quân khu 7, sang thăm, làm việc và trao đổi về chương trình thực tập cho học viên đào tạo tiếng Kh'mer; khẳng định sẽ phối hợp chặt chẽ, tạo mọi điều kiện thuận lợi nhất để các học viên hoàn thành tốt nhiệm vụ thực tập.
+                                                                Cũng nhân dịp này, đồng chí Chính uỷ Nhà trường cùng Đoàn công tác đã viếng Đài tưởng niệm Quân tình nguyện Việt Nam tại Thủ đô Phnompenh Campuchia.
+                                                                Đoàn Công tác Trường Quân sự Quân khu 7 viếng Đài tưởng niệm Quân tình nguyện Việt Nam&nbsp;Chính uỷ Nhà trường và Đoàn công tác chụp ảnh lưu niệm với Ban Giám đốc, cán bộ, giáo viên Trung tâm
+                                                                Hội nghị phối hợp hợp tác giáo dục, đào tạo giữa hai đơn vị đã thành công tốt đẹp, để lại nhiều ấn tượng sâu sắc, tiếp tục khẳng định mối quan hệ “láng giềng tốt đẹp, hữu nghị truyền thống, hợp tác toàn diện, bền vững lâu dài” giữa Việt Nam – Campuchia, góp phần xây dựng quân đội mỗi nước ngày càng chính quy, hiện đại, vì hòa bình, ổn định và phát triển của mỗi nước và khu vực./.
+                                                                Ban Tuyên huấn/ Phòng Chính trị
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Phần ảnh bên phải cùng-->
+                                            <div class="owl-item" style="width: 600px;">
+                                                <div id="slideItemId_1308" class="bg_black border_black slide_item" style="position:relative;height:400px;overflow-y:hidden">
+                                                    <a href="https://www.tqsqk7.edu.vn/upload/15/638913086200823604.jpg" id="aFancy" data-fancybox="gallery">
+                                                        <img src="https://www.tqsqk7.edu.vn/upload/thumb/15_638913086200823604___601.jpg" id="imgThumb" style="width:100%;height:auto;display:block;position:absolute;top:50%;transform: translate(0%,-50%);-ms-transform: translate(0%,-50%);-moz-transform: translate(0%,-50%);-webkit-transform: translate(0%,-50%);-o-transform: translate(0%,-50%);">
+                                                    </a>
+
+                                                    <div class="" style="position:absolute;bottom:0px;left:0px;right:0px;height:auto;padding:15px;background: rgba(0,0,0,0.5);">
+                                                        <div class="text_2_line" style="margin-bottom:5px">
+                                                            <a href="https://www.tqsqk7.edu.vn/truong-quan-su-quan-khu-7-to-chuc-le-khai-giang-dao-tao-hsqch-va-nvcmkt-khoa-61-nam-2025-cgaq-p.html" class="text_white" title="Trường Quân sự Quân khu 7 tổ chức Lễ khai giảng đào tạo HSQCH và NVCMKT khóa 61 năm 2025">
+                                                                <b>Trường Quân sự Quân khu 7 tổ chức Lễ khai giảng đào tạo HSQCH và NVCMKT khóa 61 năm 2025</b>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="text_3_line" style="text-align:justify">
+                                                            <a href="https://www.tqsqk7.edu.vn/truong-quan-su-quan-khu-7-to-chuc-le-khai-giang-dao-tao-hsqch-va-nvcmkt-khoa-61-nam-2025-cgaq-p.html" class="text_white" title="Trường Quân sự Quân khu 7 tổ chức Lễ khai giảng đào tạo HSQCH và NVCMKT khóa 61 năm 2025">
+                                                                Ngày 20/8, Trường Quân sự Quân khu 7 tổ chức Lễ khai giảng đào tạo hạ sĩ quan chỉ huy (HSQCH) và nhân viên chuyên môn kỹ thuật (NVCMKT) khóa 61 năm 2025. Dự và chỉ đạo Lễ khai giảng Thiếu tướng Lê Ngọc Hải, Phó Tham mưu trưởng Quân khu, thừa ủy quyền Bộ Tư lệnh Quân khu; tham dự có Thủ trưởng các cơ quan Quân khu; Thủ trưởng Ban Giám hiệu Nhà trường, chỉ huy các cơ quan, khoa giáo viên, đơn vị và học viên HSQCH và NVCMKT khóa 61.
+                                                                Đại tá Lê Ngọc Dương, Đảng ủy viên Quân khu, Phó Bí thư Đảng ủy, Hiệu trưởng Nhà trường phát biểu khai giảng
+                                                                Năm 2025, Trường Quân sự Quân khu được giao nhiệm vụ đào tạo HSQCH và NVCMKT cho 2.326 học viên được tuyển chọn từ các đơn vị, địa phương trong toàn Quân khu. Với mục tiêu đào tạo trang bị cho học viên những kiến thức cơ bản về tư tưởng chính trị, kiến thức về hoạt động quân sự, chuyên môn kỹ thuật; sử dụng thành thạo các loại vũ khí khí tài, trang bị kỹ thuật hiện có trong biên chế của tiểu đội, khẩu đội; thuần thục các động tác kỹ thuật, chiến thuật cá nhân và chuyên ngành, phương pháp, tác phong chỉ huy của tiểu đội, khẩu đội trưởng; giỏi cấp tổ, thành thạo cấp tiểu đội, biết cấp trung đội.
+                                                                Phát biểu chỉ đạo Lễ khai giảng, Thiếu tướng Lê Ngọc Hải, Phó Tham mưu trưởng Quân khu yêu cầu Ban Giám hiệu Nhà trường và cán bộ giáo viên nhà trường quán triệt và triển khai các nghị quyết của Bộ Quốc phòng và Quân khu về đổi mới công tác giáo dục đào tạo theo yêu cầu nhiệm vụ xây dựng quân đội trong tình hình mới. Các cơ quan, khoa giáo viên ứng dụng có hiệu quả khoa học, công nghệ trong giáo dục đào tạo, thực hiện tốt phương châm đào tạo “Cơ bản, hệ thống, thống nhất, chuyên sâu”; vận dụng tốt “3 quan điểm, 8 nguyên tắc, 6 mối kết hợp” trong quá trình huấn luyện. Thường xuyên cập nhật bài giảng theo sát chương trình đào tạo cho từng đối tượng, lồng ghép nội dung huấn luyện với giáo dục, phổ biến pháp luật cho học viên. Học viên chấp hành nghiêm các chế độ, quy định của khóa học, an tâm tư tưởng, phát huy tính chủ động, sáng tạo của tuổi trẻ quân đội, nâng cao ý thực tự học tự rèn, khắc phục mọi khó khăn, đoàn kết quyết tâm hoàn thành xuất sắc nhiệm vụ khóa học.
+                                                                Thiếu tướng Lê Ngọc Hải, Phó Tham mưu trưởng Quân khu phát biểu chỉ đạo&nbsp;Quang cảnh Lễ khai giảng khóa 61
+                                                                Đại biểu dự Lễ Khai giảng
+                                                                Trung tá, Thạc sỹ Nguyễn Đức Thịnh giáo viên Khoa KHXH&amp;NV, thay mặt đội ngũ giáo viên phát biểu
+                                                                Đại diện học viên khóa 61 phát biểu hứa hẹn quyết tâm trong khóa học
+                                                                Các khối duyệt đội ngũ qua khán đài
+                                                                Với khí thế quyết tâm trong Lễ Khai giảng đào tạo HSQCH và NVCMKT khóa 61 năm 2025. Trường Quân sự Quân khu 7 sẽ hoàn thành thắng lợi nhiệm vụ Khóa học, đào tạo đội ngũ cán bộ tiểu đội trưởng, khẩu đội trưởng, Nhân viên chuyên môn kỹ thuật vừa hồng, vừa chuyên đóng góp xứng đáng vào xây dựng lực lượng vũ trang Quân khu 7 ngày càng vững mạnh, hoàn thành thắng lợi mọi nhiệm vụ được giao./.
+                                                                Bá Tuấn- Minh Khoa/ Phòng Chính trị
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><div class="owl-item" style="width: 600px;">
+                                                
+                                            </div><div class="owl-item" style="width: 600px;">
+                                                
+                                            </div><div class="owl-item" style="width: 600px;">
+                                                 
+                                            </div><div class="owl-item" style="width: 600px;">
+                                                 
+                                            </div><div class="owl-item" style="width: 600px;">
+                                                
+                                            </div> <div class="owl-item" style="width: 600px;">
+                                                
+                                            </div> <div class="owl-item cloned" style="width: 600px;">
+                                                <div id="slideItemId_1271" class="bg_black border_black slide_item" style="position:relative;height:400px;overflow-y:hidden">
+                                                    <a href="https://www.tqsqk7.edu.vn/upload/15/638883724532039366.jpg" id="aFancy" data-fancybox="gallery">
+                                                        <img src="https://www.tqsqk7.edu.vn/upload/thumb/15_638883724532039366___601.jpg" id="imgThumb" style="width:100%;height:auto;display:block;position:absolute;top:50%;transform: translate(0%,-50%);-ms-transform: translate(0%,-50%);-moz-transform: translate(0%,-50%);-webkit-transform: translate(0%,-50%);-o-transform: translate(0%,-50%);">
+                                                    </a>
+
+                                                    <div class="" style="position:absolute;bottom:0px;left:0px;right:0px;height:auto;padding:15px;background: rgba(0,0,0,0.5);">
+                                                        <div class="text_2_line" style="margin-bottom:5px">
+                                                            <a href="https://www.tqsqk7.edu.vn/dang-bo-truong-quan-su-quan-khu-7-khai-mac-dai-hoi-dai-bieu-dang-bo-lan-thu-xii,-nhiem-ky-2025-2030-ceoc-p.html" class="text_white" title="Đảng bộ Trường Quân sự Quân khu 7 khai mạc Đại hội đại biểu Đảng bộ lần thứ XII, nhiệm kỳ 2025-2030">
+                                                                <b>Đảng bộ Trường Quân sự Quân khu 7 khai mạc Đại hội đại biểu Đảng bộ lần thứ XII, nhiệm kỳ 2025-2030</b>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="text_3_line" style="text-align:justify">
+                                                            <a href="https://www.tqsqk7.edu.vn/dang-bo-truong-quan-su-quan-khu-7-khai-mac-dai-hoi-dai-bieu-dang-bo-lan-thu-xii,-nhiem-ky-2025-2030-ceoc-p.html" class="text_white" title="Đảng bộ Trường Quân sự Quân khu 7 khai mạc Đại hội đại biểu Đảng bộ lần thứ XII, nhiệm kỳ 2025-2030">
+                                                                Trong không khí vui tươi, phấn khởi của toàn Đảng, toàn dân và toàn quân ta hướng tới kỷ niệm 80 năm Cách mạng tháng Tám và Quốc khánh nước CHXHCN Việt Nam (02/9/1945 – 02/9/2025), chiều 17/7, Đảng bộ Trường Quân sự Quân khu 7 long trọng tổ chức Đại hội đại biểu lần thứ XII, nhiệm kỳ 2025 – 2030. Thiếu tướng Trần Ngọc Minh – Đảng ủy viên Quân khu, Phó Tư lệnh Quân khu dự và phát biểu chỉ đạo; tham dự có các đồng chí đại biểu cơ quan Quân khu, các đơn vị bạn, các đồng chí nguyên là lãnh đạo chỉ huy qua các thời kỳ, ủy viên Ban Chấp hành Đảng bộ Trường Quân sự Quân khu 7 nhiệm kỳ 2020 – 2025 và 129 đại biểu tham dự Đại hội.
+                                                                Khai mạc Đại hội, Đại tá Bùi Đình Thành – Bí thư Đảng ủy, Chính ủy Nhà trường khẳng định, Đại hội Đảng bộ lần này có ý nghĩa đặc biệt quan trọng; khẳng định sự đoàn kết, thống nhất, bản lĩnh, truyền thống tốt đẹp của Nhà trường anh hùng qua gần 80 năm xây dựng, chiến đấu và trưởng thành, dưới lá cờ vẻ vang của Đảng. Đại hội diễn ra trong thời điểm toàn Đảng, toàn dân, toàn quân ta đang phấn khởi, kỳ vọng, tin tưởng tuyệt đối với những quyết sách chiến lược của Trung ương về cải cách bộ máy của hệ thống chính trị tinh, gọn, mạnh, hoạt động hiệu năng, hiệu lực, hiệu quả; góp phần đưa đất nước ta bước vào kỷ nguyên mới, phồn vinh, thịnh vượng.
+                                                                Đại tá Bùi Đình Thành, Bí thư đảng ủy, chính ủy Nhà trường phát biểu khai mạc Đại hội
+                                                                Với phương châm “Dân chủ, đoàn kết, khoa học, đổi mới, phát triển" Đại hội tập trung tổng kết thực hiện Nghị quyết Đại hội Đảng bộ Nhà trường lần thứ XII, nhiệm kỳ 2020 – 2025 và xác định phương hướng, mục tiêu, nhiệm vụ, giải pháp lãnh đạo, nhiệm kỳ 2025 – 2030; Thảo luận, đóng góp ý kiến vào dự thảo các văn kiện Đại hội XIV của Đảng và báo cáo chính trị trình Đại hội Đảng bộ Quân khu lần thứ XI; Bầu Ban Chấp hành Đảng bộ khóa mới; Bầu đoàn đại biểu dự Đại hội Đảng bộ Quân khu lần thứ XI, nhiệm kỳ 2025 – 2030.
+                                                                Thiếu tướng Trần Ngọc Minh, Đảng ủy viên Quân khu, Phó Tư lệnh Quân khu phát biểu chỉ đạo đại hội
+                                                                Phát biểu chỉ đạo tại đại hội, Thiếu tướng Trần Ngọc Minh biểu dương những nỗ lực, cố gắng và kết quả của Nhà trường đã đạt được trong nhiệm kỳ qua, yêu cầu Đảng bộ Trường Quân sự Quân khu 7 trong nhiệm kỳ tới cần tập trung lãnh đạo, chỉ đạo quán triệt, triển khai thực hiện nghiêm các nghị quyết, chỉ thị cấp trên, trọng tâm là nâng cao chất lượng giáo dục đào tạo, nghiên cứu khoa học; xây dựng đội ngũ cán bộ, giáo viên có cơ cấu hợp lý, chất lượng cao; đổi mới nội dung phương pháp giảng dạy đáp ứng cầu nhiệm vụ, nhất là trong thực hiện chính quyền địa phương 2 cấp, xây dựng trung tâm QPAN chính quy, hiện đại. Lãnh đạo toàn diện các giải pháp nâng cao chất lượng về công tác xây dựng Đảng, xây dựng nền nếp chính quy, rèn luyện kỷ luật, đột phá cải cách hành chính, chuyển đổi số xây dựng Nhà trường thông minh, bảo đảm tốt công tác bảo đảm hậu cần, kỹ thuật, tài chính cho nhiệm vụ thường xuyên, đột xuất.
+                                                                Đại tá Thái Thành Đức, Phó Chủ nhiệm Chính trị Quân khu dự đại hội
+                                                                Các đồng chí đại biểu dự đại hội&nbsp;Các đồng chí đại biểu dự đại hội&nbsp;Thủ trưởng Bộ Tư lệnh Quân khu, các cơ quan Quân khu và các đồng chí đại biểu dâng hương Chủ tịch Hồ Chí Minh&nbsp;Đại tá Nguyễn Tiến Sơn, Uỷ viên Ban Thường vụ, Phó Chính ủy Nhà trường tặng hoa đội văn nghệ xung kích chào mừng đại hội
+                                                                Nhân dịp Đại hội, các đại biểu đã đến dâng hương, tưởng nhớ công ơn Chủ tịch Hồ Chí Minh tại Nhà Truyền thống Nhà trường. Trước đó, sáng 17/7, Đại hội đã tiến hành phiên trù bị, bầu Đoàn Chủ tịch, Đoàn Thư ký, Ban Thẩm tra tư cách đại biểu; thông qua nội dung, chương trình làm việc, quy chế làm việc của Đại hội; báo cáo tổng hợp ý kiến của đại hội chi bộ, đảng bộ trực thuộc vào các dự thảo văn kiện Trung ương; trình bày báo cáo chính trị của Đảng ủy Quân khu; điều hành thảo luận vào văn kiện của Trung ương; Quân khu; hướng dẫn sinh hoạt của đại biểu, phổ biến quy định trong đại hội và tổ chức luyện tập một số nội dung trong đại hội phiên chính thức./.
+                                                                Bá Tuấn- Phòng Chính trị
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><div class="owl-nav"><div class="owl-prev"><div><img src="/images/upload/thumb/prev.png" width="15" height="46" border="0" style="display:block;margin-left:10px"></div></div><div class="owl-next"><div><img src="/images/upload/thumb/next.png" width="15" height="46" border="0" style="display:block;margin-right:10px"></div></div></div><div class="owl-dots disabled"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <link rel="stylesheet" href="./Cổng TTĐT Trường Quân sự Quân khu 7_files/owl.carousel.css">
+                    <link rel="stylesheet" href="./Cổng TTĐT Trường Quân sự Quân khu 7_files/owl.theme.default.css">
+
+                    <script src="./Cổng TTĐT Trường Quân sự Quân khu 7_files/jquery.min.js.download"></script>
+                    <script src="./Cổng TTĐT Trường Quân sự Quân khu 7_files/owl.carousel.min.js.download"></script>
+
+                    <style type="text/css">
+                        .owl-prev, .owl-next {
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            background-color: transparent;
+                            border: none !important;
+                            outline: none !important;
+                            box-shadow: none !important;
+                            background: none !important;
+                        }
+                    </style>
+
+                    <script>
+
+                        $(function () {
+                            fixSlideShowLeft();
+                        });
+
+                        $(window).resize(function () {
+                            fixSlideShowLeft();
+                        });
+
+                        function fixSlideShowLeft(h) {
+
+                            var container = $('#newsSlideShowLeftColumn');
+
+                            // Exit early if the left column is not visible (e.g., display: none)
+                            if (!container.is(':visible')) {
+                                return;
+                            }
+
+                            $('#newsSlideShowLeftColumn').css('height', h);
+                        }
+
+                        var j2 = jQuery.noConflict(true);
+
+                        function updateActiveItem(event) {
+                            var container = $('#newsSlideShowLeftColumn');
+
+                            // Exit early if the left column is not visible (e.g., display: none)
+                            if (!container.is(':visible')) {
+                                return;
+                            }
+
+                            var currentIndex = event.item.index;
+
+                            // Find the currently active .owl-item
+                            var currentOwlItem = j2(event.target).find('.owl-item').eq(currentIndex);
+
+                            // Get your actual slide inside it (the direct child of .owl-item)
+                            var slideDiv = currentOwlItem.children('div');
+
+                            fixSlideShowLeft($(slideDiv).css('height'));
+
+                            // Now get the ID
+                            var slideId = slideDiv.attr('id');
+
+                            $('.news_item').removeClass('news_item_active');
+
+                            //$('#newsItemId_' + slideId.replace(/slideItemId_/gi, '')).addClass('news_item_active');
+
+                            var activeNewsItem = $('#newsItemId_' + slideId.replace(/slideItemId_/gi, ''));
+
+                            activeNewsItem.addClass('news_item_active');
+
+                            // Scroll logic to ensure the item is visible in the left column
+                            var container = $('#newsSlideShowLeftColumn');
+                            var containerTop = container.offset().top;
+                            var containerBottom = containerTop + container.height();
+
+                            var itemTop = activeNewsItem.offset().top;
+                            var itemBottom = itemTop + activeNewsItem.outerHeight(true);
+
+                            // If item is not fully visible, scroll to it
+                            if (itemTop < containerTop || itemBottom > containerBottom) {
+                                container.animate({
+                                    scrollTop: container.scrollTop() + (itemTop - containerTop)
+                                }, 300);
+                            }
+                        }
+
+                        j2(function () {
+                            j2('#newsSlide').on('initialized.owl.carousel', function (event) {
+                                updateActiveItem(event);
+                            });
+
+                            j2('#newsSlide').owlCarousel({
+                                slideTransition: 'linear',
+                                autoplay: true,
+                                autoplayTimeout: 5000,
+                                autoplayHoverPause: false,
+                                animateOut: 'fadeOut',
+                                loop: true,
+                                lazyLoad: true,
+                                margin: 0,
+                                stagePadding: 0,
+                                responsiveClass: true,
+                                dots: false,
+                                navText: ['<div><img src="/images/layout/prev.png" width=15 height=46 border=0 style="display:block;margin-left:10px" /></div>', '<div><img src="/images/layout/next.png" width=15 height=46 border=0 style="display:block;margin-right:10px" /></div>'],
+                                singleItem: true,
+                                responsive: {
+                                    0: {
+                                        items: 1,
+                                        nav: true
+                                    },
+                                    240: {
+                                        items: 1,
+                                        nav: true
+                                    },
+                                    320: {
+                                        items: 1,
+                                        nav: true,
+                                        loop: true
+                                    },
+                                    375: {
+                                        items: 1,
+                                        nav: true,
+                                        loop: true
+                                    },
+
+                                    414: {
+                                        items: 1,
+                                        nav: true,
+                                        loop: true
+                                    },
+
+                                    480: {
+                                        items: 1,
+                                        nav: true,
+                                        loop: true
+                                    },
+
+                                    568: {
+                                        items: 1,
+                                        nav: true,
+                                        loop: true
+                                    },
+
+                                    600: {
+                                        items: 1,
+                                        nav: true,
+                                        loop: true
+                                    },
+
+                                    736: {
+                                        items: 1,
+                                        nav: true,
+                                        loop: true
+                                    },
+
+                                    768: {
+                                        items: 1,
+                                        nav: true,
+                                        loop: true
+                                    },
+
+                                    800: {
+                                        items: 1,
+                                        nav: true,
+                                        loop: true
+                                    },
+
+                                    1024: {
+                                        items: 1,
+                                        nav: true,
+                                        loop: true
+                                    },
+
+                                    1440: {
+                                        items: 1,
+                                        nav: true,
+                                        loop: true
+                                    },
+
+                                    1600: {
+                                        items: 1,
+                                        nav: true,
+                                        loop: true
+                                    },
+
+                                    2560: {
+                                        items: 1,
+                                        nav: true,
+                                        loop: true
+                                    },
+
+                                }
+                            })
+
+                            j2('.owl-carousel').on('changed.owl.carousel', function (event) {
+                                updateActiveItem(event);
+                            });
+                        });
+
+                    </script>
+
+
+
+
+             
+                    <div style="margin-bottom:20px">
+                        <div style="height:45px;width:100%;margin-bottom:20px;position:relative;
+        background-image:url(/images/layout/center_section_title_bg.png);background-repeat: repeat-x;background-position: bottom center;background-size: auto 36px;">
+                            <div style="height:100%;display:grid;grid-template-columns:auto 1fr;grid-gap:20px;align-items:center">
+                                <div style="margin-left:5px;margin-right:5px;padding-left:20px;padding-right:20px;height:100%;display:inline-block" class="bg_green2">
+                                    <div style="display:grid;grid-template-columns:16px auto;grid-gap:10px;align-items:center;height:100%">
+                                        <div>
+                                            <img src="/images/layout/star.png" style="width:16px;margin-right:10px">
+                                        </div>
+
+                                        <div>
+                                            <a href="ListNews" class="text_section_title">
+                                                <b><span id="lblSectionName">TIN HOẠT ĐỘNG MÔI TRƯỜNG</span></b>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="section_title_view_all" style="padding-right:15px;padding-top:6px;text-align:right">
+                                    <a href="ListNews" class="text_yellow">
+                                        <b>Xem tất cả</b>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Phần hiển thị tin tức hoạt động theo list-->
+                        <div class="home_listing_container">
+                            <div class="home_listing_first_item text_long_url">
+                                <div class="bg_black img-hover-zoom intro_img_div">
+                                    <a href="/NewsPostDetail/{NewsPostId}" id="aImgThumbFirstLink" class="text_body">
+                                        <img src="/images/upload/thumb/15_638915859082329380___600.jpg" id="imgThumbFirst" style="width:100%" class="border_black">
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <div style="margin-bottom:12px">
+                                        <a href="/NewsPostDetail/{NewsPostId}" id="aPostTitleLink" class="text_body text_2_line">
+                                            <b><span id="lblPostTitle">Khai mạc Lớp tập huấn kỹ năng hoạt động văn hóa, văn nghệ cho học viên đào tạo tiểu đội trưởng, nhân viên chuyên môn kỹ thuật Khoá 61 tại Trường Quân sự Quân khu 7</span></b>
+                                        </a>
+                                    </div>
+
+                                    <div style="text-align:justify" class="home_listing_first_item_lead_text">
+                                        <a href="/NewsPostDetail/{NewsPostId}" id="aPostBodyLink" class="text_body">
+                                            <span id="lblPostBody">
+                                                Sáng 23/8, Cục Chính trị Quân khu tổ chức lễ khai mạc lớp tập huấn kỹ năng hoạt động văn hóa, văn nghệ cho học viên đào tạo Tiểu đội trưởng, nhân viên chuyên môn kỹ thuật khoá 61, năm 2025 tại Trường Quân sự Quân khu 7; đây là hoạt động hằng năm của Cục Chính trị Quân khu, nhằm bồi dưỡng đội ngũ học viên Tiểu đội trưởng, nhân viên chuyên môn kỹ thuật kỹ năng hoạt động văn hoá, văn nghệ góp phần nâng cao đời sống tinh thần lành mạnh cán bộ, chiến sĩ lực lượng vũ trang Quân khu.
+                                                Đại tá Nguyễn Hồng Cảnh, Phó Chủ nhiệm Chính trị Quân khu phát biểu chỉ đạo lễ khai mạc.
+                                                Dự khai mạc có Đại tá Nguyễn Hồng Cảnh, Phó Chủ nhiệm Chính trị Quân khu; Đại tá Bùi Đình Thành, Bí thư Đảng ủy, Chính ủy Nhà trường; Đại tá Phạm Văn Kiên, Phó Hiệu trưởng Nhà trường; Trung tá QNCN Trần Thị Thanh Tâm, Phó Chủ nhiệm Nhà văn hóa Quân khu và đại diện chỉ huy các phòng, khoa, đơn vị trong Nhà trường.
+                                                Trung tá QNCN Trần Thị Thanh Tâm, Phó Chủ nhiệm Nhà Văn hóa Quân khu phát biểu tại lễ khai mạc.
+                                                Lớp tập huấn năm nay có sự tham gia của 200 đồng chí học viên đào tạo Hạ sĩ quan chỉ huy và Nhân viên chuyên môn kỹ thuật Khóa 61, được tuyển chọn từ các đơn vị, địa phương có năng khiếu văn hóa, văn nghệ để trở thành hạt nhân cho toàn Quân khu. Các học viên học viên sẽ được tập huấn về các điệu múa truyền thống Việt Nam (múa sạp) và Campuchia (Rom Vông), các vũ điệu khiêu vũ quốc tế (Chachacha, Disco), 5 vũ điệu sinh hoạt tập thể trong Quân đội Nhân dân Việt Nam, kỹ năng hoạt náo quản trò và các trò chơi dân gian, quân sự. Đặc biệt, lớp tập huấn cũng sẽ trang bị cho học viên về 15 bài hát quy định trong Quân đội Nhân dân Việt Nam. Lớp tập huấn sẽ diễn ra từ 23/8/2025 - 30/10/2025. Thời gian học được bố trí với 3 buổi mỗi tuần: Tối thứ Năm và sáng, chiều thứ Bảy.
+                                                Đại biểu dự lễ khai mạc.
+                                                Phát biểu khai mạc, Đại tá Nguyễn Hồng Cảnh, Phó Chủ nhiệm Chính trị Quân khu nhấn mạnh tầm quan trọng của hoạt động văn hóa, văn nghệ, đây là hoạt động thiết thực góp phần xây dựng tổ chức Đảng trong sạch vững mạnh, đơn vị vững mạnh toàn diện “Mẫu mực, tiêu biểu”. Đồng chí yêu cầu Nhà trường và Nhà Văn hóa Quân khu tiếp tục phối hợp chặt chẽ, tạo điều kiện tốt nhất cho lớp học, đồng thời chuẩn bị giáo án chu đáo, khoa học và quan tâm các đồng chí học viên. Đồng chí Phó Chủ nhiệm Chính trị Quân khu yêu cầu học viên phải tập trung tiếp thu và nắm chắc các kỹ năng cơ bản để khi về đơn vị tổ chức truyền đạt, huấn luyện được cho bộ đội, phát triển hoạt động văn hóa văn nghệ ở đơn vị cơ sở ngày càng sôi nổi, hiệu quả thiết thực; các đồng chí phải phát huy hết khả năng của mình, chứng tỏ được bản thân là lực lượng nòng cốt trong xây dựng phong trào văn hóa, văn nghệ tại đơn vị cơ sở.
+                                                Các cán bộ, chiến sĩ biểu diễn nhiều tiết mục văn nghệ sôi động tại lễ khai mạc.
+                                                Thanh Bình- Minh Khoa/ Phòng Chính trị
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="home_sub_listing">
+
+                                <div class="home_sub_listing_item">
+
+                                    <div style="position:absolute;top:0;bottom:0;left:0;width:10px;z-index:1;display:none" class="bg_red left_border">
+                                    </div>
+
+                                    <div style="aspect-ratio: 3/2;" class="bg_black img-hover-zoom">
+                                        <a href="ListNews">
+                                            <img src="https://www.tqsqk7.edu.vn/upload/thumb/15_638915252265488123___133.jpg" id="imgThumb" style="width:100%" class="border_black">
+                                        </a>
+                                    </div>
+
+                                    <div>
+                                        <div class="home_sub_listing_item_title text_long_url">
+                                            <a href="https://www.tqsqk7.edu.vn/truong-quan-su-quan-khu-7-tham-va-lam-viec-tai-trung-tam-huan-luyen-luc-quan-quan-doi-hoang-gia-campuchia-cgcc-p.html" class="text_body" title="Trường Quân sự Quân khu 7 thăm và làm việc tại Trung tâm huấn luyện Lục quân/Quân đội Hoàng gia Campuchia">
+                                                <div style="display:flex;align-items:start">
+
+
+                                                    <div>
+                                                        <b>Trường Quân sự Quân khu 7 thăm và làm việc tại Trung tâm huấn luyện Lục quân/Quân đội Hoàng gia Campuchia</b>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div style="text-align:justify" class="home_sub_listing_item_lead_text text_long_url">
+                                            <a href="https://www.tqsqk7.edu.vn/ascx/center/#" id="aPostBodyLink" class="text_body">
+                                                Thực hiện Kế hoạch đào tạo tiếng Khmer cho cán bộ Lực lượng vũ trang Quân khu 7 tại trường Quân sự Quân khu năm 2025 đã được Tư lệnh Quân khu phê duyệt; căn cứ thỏa ước kết nghĩa giữa hai đơn vị. Ngày 21/8/2025, Đoàn Công tác của Trường Quân sự Quân khu 7 do đồng chí Đại tá Bùi Đình Thành, Bí thư Đảng ủy, Chính uỷ Nhà trường làm trưởng đoàn đã thăm và làm việc với Ban Giám đốc Trung tâm Huấn luyện Lục quân/Quân đội Hoàng gia Campuchia.
+                                                Quang cảnh Hội nghị
+                                                Trong buổi làm việc, hai bên trao đổi thống nhất về nội dung, chương trình, thời gian và những kỹ năng cần đạt được trong quá trình thực tập của học viên. Đồng chí Chính ủy Nhà trường cảm ơn sâu sắc đến Ban Giám đốc, cán bộ, giáo viên Trung tâm Huấn huyện Lục quân trong thời gian qua đã tạo điều kiện giúp đỡ, hỗ trợ học viên Nhà trường học tập thực tế tại Trung tâm và nhấn mạnh "Việc tổ chức cho học viên đào tạo tiếng Khmer thực tập tại Trung tâm không chỉ để nâng cao kiến thức, các kỹ năng, mà còn là dịp tăng cường tình cảm, sự hiểu biết, niềm tin giữa Nhân dân, Quân đội hai nước, hai đơn vị và mong muốn tiếp tục nhận được sự hỗ trợ giúp đỡ của Trung tâm, tiếp nối truyền thống đoàn kết quốc tế trong sáng, thủy chung mà các thế hệ cha anh hai dân tộc đã dày công vun đắp".
+                                                Lãnh đạo hai đơn vị trao đổi thống nhất các nội dung trong Hội nghị
+                                                Lãnh đạo Trung tâm Huấn luyện Lục quân Campuchia bày tỏ niềm vui mừng, vinh dự được đón tiếp Đoàn Công tác của Trường Quân sự Quân khu 7, sang thăm, làm việc và trao đổi về chương trình thực tập cho học viên đào tạo tiếng Kh'mer; khẳng định sẽ phối hợp chặt chẽ, tạo mọi điều kiện thuận lợi nhất để các học viên hoàn thành tốt nhiệm vụ thực tập.
+                                                Cũng nhân dịp này, đồng chí Chính uỷ Nhà trường cùng Đoàn công tác đã viếng Đài tưởng niệm Quân tình nguyện Việt Nam tại Thủ đô Phnompenh Campuchia.
+                                                Đoàn Công tác Trường Quân sự Quân khu 7 viếng Đài tưởng niệm Quân tình nguyện Việt Nam&nbsp;Chính uỷ Nhà trường và Đoàn công tác chụp ảnh lưu niệm với Ban Giám đốc, cán bộ, giáo viên Trung tâm
+                                                Hội nghị phối hợp hợp tác giáo dục, đào tạo giữa hai đơn vị đã thành công tốt đẹp, để lại nhiều ấn tượng sâu sắc, tiếp tục khẳng định mối quan hệ “láng giềng tốt đẹp, hữu nghị truyền thống, hợp tác toàn diện, bền vững lâu dài” giữa Việt Nam – Campuchia, góp phần xây dựng quân đội mỗi nước ngày càng chính quy, hiện đại, vì hòa bình, ổn định và phát triển của mỗi nước và khu vực./.
+                                                Ban Tuyên huấn/ Phòng Chính trị
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="home_sub_listing_item">
+
+                                    <div style="position:absolute;top:0;bottom:0;left:0;width:10px;z-index:1;display:none" class="bg_red left_border">
+                                    </div>
+
+                                    <div style="aspect-ratio: 3/2;" class="bg_black img-hover-zoom">
+                                        <a href="https://www.tqsqk7.edu.vn/truong-quan-su-quan-khu-7-to-chuc-le-khai-giang-dao-tao-hsqch-va-nvcmkt-khoa-61-nam-2025-cgaq-p.html">
+                                            <img src="https://www.tqsqk7.edu.vn/upload/thumb/15_638913086200823604___133.jpg" id="imgThumb" style="width:100%" class="border_black">
+                                        </a>
+                                    </div>
+
+                                    <div>
+                                        <div class="home_sub_listing_item_title text_long_url">
+                                            <a href="https://www.tqsqk7.edu.vn/truong-quan-su-quan-khu-7-to-chuc-le-khai-giang-dao-tao-hsqch-va-nvcmkt-khoa-61-nam-2025-cgaq-p.html" class="text_body" title="Trường Quân sự Quân khu 7 tổ chức Lễ khai giảng đào tạo HSQCH và NVCMKT khóa 61 năm 2025">
+                                                <div style="display:flex;align-items:start">
+
+
+                                                    <div>
+                                                        <b>Trường Quân sự Quân khu 7 tổ chức Lễ khai giảng đào tạo HSQCH và NVCMKT khóa 61 năm 2025</b>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div style="text-align:justify" class="home_sub_listing_item_lead_text text_long_url">
+                                            <a href="https://www.tqsqk7.edu.vn/ascx/center/#" id="aPostBodyLink" class="text_body">
+                                                Ngày 20/8, Trường Quân sự Quân khu 7 tổ chức Lễ khai giảng đào tạo hạ sĩ quan chỉ huy (HSQCH) và nhân viên chuyên môn kỹ thuật (NVCMKT) khóa 61 năm 2025. Dự và chỉ đạo Lễ khai giảng Thiếu tướng Lê Ngọc Hải, Phó Tham mưu trưởng Quân khu, thừa ủy quyền Bộ Tư lệnh Quân khu; tham dự có Thủ trưởng các cơ quan Quân khu; Thủ trưởng Ban Giám hiệu Nhà trường, chỉ huy các cơ quan, khoa giáo viên, đơn vị và học viên HSQCH và NVCMKT khóa 61.
+                                                Đại tá Lê Ngọc Dương, Đảng ủy viên Quân khu, Phó Bí thư Đảng ủy, Hiệu trưởng Nhà trường phát biểu khai giảng
+                                                Năm 2025, Trường Quân sự Quân khu được giao nhiệm vụ đào tạo HSQCH và NVCMKT cho 2.326 học viên được tuyển chọn từ các đơn vị, địa phương trong toàn Quân khu. Với mục tiêu đào tạo trang bị cho học viên những kiến thức cơ bản về tư tưởng chính trị, kiến thức về hoạt động quân sự, chuyên môn kỹ thuật; sử dụng thành thạo các loại vũ khí khí tài, trang bị kỹ thuật hiện có trong biên chế của tiểu đội, khẩu đội; thuần thục các động tác kỹ thuật, chiến thuật cá nhân và chuyên ngành, phương pháp, tác phong chỉ huy của tiểu đội, khẩu đội trưởng; giỏi cấp tổ, thành thạo cấp tiểu đội, biết cấp trung đội.
+                                                Phát biểu chỉ đạo Lễ khai giảng, Thiếu tướng Lê Ngọc Hải, Phó Tham mưu trưởng Quân khu yêu cầu Ban Giám hiệu Nhà trường và cán bộ giáo viên nhà trường quán triệt và triển khai các nghị quyết của Bộ Quốc phòng và Quân khu về đổi mới công tác giáo dục đào tạo theo yêu cầu nhiệm vụ xây dựng quân đội trong tình hình mới. Các cơ quan, khoa giáo viên ứng dụng có hiệu quả khoa học, công nghệ trong giáo dục đào tạo, thực hiện tốt phương châm đào tạo “Cơ bản, hệ thống, thống nhất, chuyên sâu”; vận dụng tốt “3 quan điểm, 8 nguyên tắc, 6 mối kết hợp” trong quá trình huấn luyện. Thường xuyên cập nhật bài giảng theo sát chương trình đào tạo cho từng đối tượng, lồng ghép nội dung huấn luyện với giáo dục, phổ biến pháp luật cho học viên. Học viên chấp hành nghiêm các chế độ, quy định của khóa học, an tâm tư tưởng, phát huy tính chủ động, sáng tạo của tuổi trẻ quân đội, nâng cao ý thực tự học tự rèn, khắc phục mọi khó khăn, đoàn kết quyết tâm hoàn thành xuất sắc nhiệm vụ khóa học.
+                                                Thiếu tướng Lê Ngọc Hải, Phó Tham mưu trưởng Quân khu phát biểu chỉ đạo&nbsp;Quang cảnh Lễ khai giảng khóa 61
+                                                Đại biểu dự Lễ Khai giảng
+                                                Trung tá, Thạc sỹ Nguyễn Đức Thịnh giáo viên Khoa KHXH&amp;NV, thay mặt đội ngũ giáo viên phát biểu
+                                                Đại diện học viên khóa 61 phát biểu hứa hẹn quyết tâm trong khóa học
+                                                Các khối duyệt đội ngũ qua khán đài
+                                                Với khí thế quyết tâm trong Lễ Khai giảng đào tạo HSQCH và NVCMKT khóa 61 năm 2025. Trường Quân sự Quân khu 7 sẽ hoàn thành thắng lợi nhiệm vụ Khóa học, đào tạo đội ngũ cán bộ tiểu đội trưởng, khẩu đội trưởng, Nhân viên chuyên môn kỹ thuật vừa hồng, vừa chuyên đóng góp xứng đáng vào xây dựng lực lượng vũ trang Quân khu 7 ngày càng vững mạnh, hoàn thành thắng lợi mọi nhiệm vụ được giao./.
+                                                Bá Tuấn- Minh Khoa/ Phòng Chính trị
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>          
+                    <div style="margin-bottom:20px">
+                        <div style="height:45px;width:100%;margin-bottom:20px;position:relative;
+        background-image:url(/images/layout/center_section_title_bg.png);background-repeat: repeat-x;background-position: bottom center;background-size: auto 36px;">
+                            <div style="height:100%;display:grid;grid-template-columns:auto 1fr;grid-gap:20px;align-items:center">
+                                <div style="margin-left:5px;margin-right:5px;padding-left:20px;padding-right:20px;height:100%;display:inline-block" class="bg_green2">
+                                    <div style="display:grid;grid-template-columns:16px auto;grid-gap:10px;align-items:center;height:100%">
+                                        <div>
+                                            <img src="/images/layout/star.png" style="width:16px;margin-right:10px">
+                                        </div>
+
+                                        <div>
+                                            <a href="ListDocuments" class="text_section_title">
+                                                <b><span id="lblSectionName">VĂN BẢN THAM KHẢO</span></b>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="section_title_view_all" style="padding-right:15px;padding-top:6px;text-align:right">
+                                    <a href="ListDocuments" class="text_yellow">
+                                        <b>xem tất cả</b>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="home_listing_container">
+                            <div class="home_listing_first_item">
+                                <div class="bg_black img-hover-zoom intro_img_div">
+                                    <a href="https://www.tqsqk7.edu.vn/huong-dan-so-175-hd-hdgdqpantw-ve-chuong-trinh,-noi-dung-cap-nhat-boi-duong-kien-thuc-qp%2526ampan-cmq-p.html" id="aImgThumbFirstLink" class="text_body">
+                                        <img src="https://www.tqsqk7.edu.vn/upload/thumb/16_638832367220178390___600.png" id="imgThumbFirst" style="width:100%" class="border_black">
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <div style="margin-bottom:12px">
+                                        <a href="https://www.tqsqk7.edu.vn/huong-dan-so-175-hd-hdgdqpantw-ve-chuong-trinh,-noi-dung-cap-nhat-boi-duong-kien-thuc-qp%2526ampan-cmq-p.html" id="aPostTitleLink" class="text_body text_2_line">
+                                            <b><span id="lblPostTitle">Hướng dẫn số 175/HD-HĐGDQPANTW về Chương trình, nội dung cập nhật bồi dưỡng kiến thức QP&amp;AN</span></b>
+                                        </a>
+                                    </div>
+
+                                    <div style="text-align:justify" class="home_listing_first_item_lead_text">
+                                        <a href="https://www.tqsqk7.edu.vn/huong-dan-so-175-hd-hdgdqpantw-ve-chuong-trinh,-noi-dung-cap-nhat-boi-duong-kien-thuc-qp%2526ampan-cmq-p.html" id="aPostBodyLink" class="text_body">
+                                            <span id="lblPostBody">H.H.N (st)</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="home_sub_listing">
+
+                                <div class="home_sub_listing_item">
+
+                                    <div style="position:absolute;top:0;bottom:0;left:0;width:10px;z-index:1;display:none" class="bg_red left_border">
+                                    </div>
+
+                                    <div style="aspect-ratio: 3/2;" class="bg_black img-hover-zoom">
+                                        <a href="https://www.tqsqk7.edu.vn/thong-tu-so-172-2020-tt-bqp-cua-bo-quoc-phong-ban-hanh-chuong-trinh,-noi-dung-chuong-trinh-khung-boi-duong-kien-thuc-quoc-phong-va-an-ninh-cmc-p.html">
+                                            <img src="https://www.tqsqk7.edu.vn/upload/thumb/16_638830076397137481___133.png" id="imgThumb" style="width:100%" class="border_black">
+                                        </a>
+                                    </div>
+
+                                    <div>
+                                        <div class="home_sub_listing_item_title">
+                                            <a href="https://www.tqsqk7.edu.vn/thong-tu-so-172-2020-tt-bqp-cua-bo-quoc-phong-ban-hanh-chuong-trinh,-noi-dung-chuong-trinh-khung-boi-duong-kien-thuc-quoc-phong-va-an-ninh-cmc-p.html" class="text_body" title="Thông tư số 172/2020/TT-BQP của Bộ Quốc phòng: Ban hành chương trình, nội dung; chương trình khung bồi dưỡng kiến thức quốc phòng và an ninh">
+                                                <div style="display:flex;align-items:start">
+
+
+                                                    <div>
+                                                        <b>Thông tư số 172/2020/TT-BQP của Bộ Quốc phòng: Ban hành chương trình, nội dung; chương trình khung bồi dưỡng kiến thức quốc phòng và an ninh</b>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div style="text-align:justify" class="home_sub_listing_item_lead_text">
+                                            <a href="https://www.tqsqk7.edu.vn/ascx/center/#" id="aPostBodyLink" class="text_body">
+                                                H.H.N (st)
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="home_sub_listing_item">
+
+                                    <div style="position:absolute;top:0;bottom:0;left:0;width:10px;z-index:1;display:none" class="bg_red left_border">
+                                    </div>
+
+                                    <div style="aspect-ratio: 3/2;" class="bg_black img-hover-zoom">
+                                        <a href="https://www.tqsqk7.edu.vn/thong-tu-24-2014-tt-bqp-quy-dinh-nhiem-vu,-quyen-han-cua-co-quan,-don-vi-thuoc-bo-quoc-phong,-ban-chqs-bo,-nganh-trung-uong-ve-giao-duc-qp%2526ampan-boi-duong-kien-thuc-qp%2526ampan-trong-qdnd-viet-nam.-cma-p.html">
+                                            <img src="https://www.tqsqk7.edu.vn/upload/thumb/16_638830071891189060___133.png" id="imgThumb" style="width:100%" class="border_black">
+                                        </a>
+                                    </div>
+
+                                    <div>
+                                        <div class="home_sub_listing_item_title">
+                                            <a href="https://www.tqsqk7.edu.vn/thong-tu-24-2014-tt-bqp-quy-dinh-nhiem-vu,-quyen-han-cua-co-quan,-don-vi-thuoc-bo-quoc-phong,-ban-chqs-bo,-nganh-trung-uong-ve-giao-duc-qp%2526ampan-boi-duong-kien-thuc-qp%2526ampan-trong-qdnd-viet-nam.-cma-p.html" class="text_body" title="Thông tư 24/2014/TT-BQP Quy định nhiệm vụ, quyền hạn của cơ quan, đơn vị thuộc Bộ Quốc phòng, Ban CHQS Bộ, ngành Trung ương về giáo dục QP&amp;AN; bồi dưỡng kiến thức QP&amp;AN trong QĐND Việt Nam.">
+                                                <div style="display:flex;align-items:start">
+
+
+                                                    <div>
+                                                        <b>Thông tư 24/2014/TT-BQP Quy định nhiệm vụ, quyền hạn của cơ quan, đơn vị thuộc Bộ Quốc phòng, Ban CHQS Bộ, ngành Trung ương về giáo dục QP&amp;AN; bồi dưỡng kiến thức QP&amp;AN trong QĐND Việt Nam.</b>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div style="text-align:justify" class="home_sub_listing_item_lead_text">
+                                            <a href="https://www.tqsqk7.edu.vn/ascx/center/#" id="aPostBodyLink" class="text_body">
+                                                H.H.N (st)
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+
+                <!--Phần hiển thị bên phải-->
+                <div id="right_main_column">
+                    <div id="schoolHistoryDiv" style="overflow: hidden; margin-bottom: 30px" class="poster-container">
+                        <a href="FirstNews">
+                            <img src="/images/upload/school_history.png" style="width: 100%" class="poster">
+                        </a>
+                    </div>
+
+                    <div style="">
+                        <div style="height:45px;width:100%;margin-bottom:20px;position:relative;
+        background-image:url(https://www.tqsqk7.edu.vn/skin/defaultskin/images/layout/section_title_bg.png);background-repeat: repeat-x;background-position: bottom center;background-size: auto 36px;">
+                            <div style="margin-left:5px;margin-right:5px;padding-left:20px;padding-right:20px;height:100%;display:inline-block;z-index:1000" class="bg_red">
+                                <div style="height:100%;display:flex;align-items:center">
+                                    <b class="text_yellow">XEM NHIỀU NHẤT</b>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div style="display:grid;grid-template-columns:133px auto;grid-gap:12px;margin-bottom:20px;position:relative">
+
+                            <div style="position:absolute;top:0;bottom:0;left:0;width:10px;z-index:1;display:none" class="bg_red left_border">
+                            </div>
+
+                            <div style="width:133px;height:86px;overflow:hidden" class="bg_black img-hover-zoom">
+                                <img src="https://www.tqsqk7.edu.vn/upload/thumb/11_638847492124333197___266.png" id="imgThumb" style="width:100%" class="border_black">
+                            </div>
+
+                            <div style="height:86px;overflow:hidden;text-align:justify" class="text_4_line">
+                                <a href="https://www.tqsqk7.edu.vn/nhung-khoanh-khac-trai-nghiem-dep-nhat-eca-p.html" class="text_body" title="NHỮNG KHOẢNH KHẮC TRẢI NGHIỆM ĐẸP NHẤT">
+
+
+                                    <div style="display:flex;align-items:center">
+
+
+                                        <div>
+                                            <b>NHỮNG KHOẢNH KHẮC TRẢI NGHIỆM ĐẸP NHẤT</b>
+                                        </div>
+
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div style="display:grid;grid-template-columns:133px auto;grid-gap:12px;margin-bottom:20px;position:relative">
+
+                            <div style="position:absolute;top:0;bottom:0;left:0;width:10px;z-index:1;display:none" class="bg_red left_border">
+                            </div>
+
+                            <div style="width:133px;height:86px;overflow:hidden" class="bg_black img-hover-zoom">
+                                <img src="https://www.tqsqk7.edu.vn/upload/thumb/11_638900717942634268___266.jpg" id="imgThumb" style="width:100%" class="border_black">
+                            </div>
+
+                            <div style="height:86px;overflow:hidden;text-align:justify" class="text_4_line">
+                                <a href="https://www.tqsqk7.edu.vn/tu-hao-va-xuc-dong-%2526nbspbuoi-chao-co-trong-hoc-ky-quan-su-cesa-p.html" class="text_body" title="&quot;TỰ HÀO VÀ XÚC ĐỘNG&quot; -  BUỔI CHÀO CỜ TRONG HỌC KỲ QUÂN SỰ">
+
+
+                                    <div style="display:flex;align-items:center">
+
+
+                                        <div>
+                                            <b>“TỰ HÀO VÀ XÚC ĐỘNG” - &nbsp;BUỔI CHÀO CỜ TRONG HỌC KỲ QUÂN SỰ</b>
+                                        </div>
+
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div style="display:grid;grid-template-columns:133px auto;grid-gap:12px;margin-bottom:20px;position:relative">
+
+                            <div style="position:absolute;top:0;bottom:0;left:0;width:10px;z-index:1;display:none" class="bg_red left_border">
+                            </div>
+
+                            <div style="width:133px;height:86px;overflow:hidden" class="bg_black img-hover-zoom">
+                                <img src="https://www.tqsqk7.edu.vn/upload/thumb/4_638830753482072456___266.jpg" id="imgThumb" style="width:100%" class="border_black">
+                            </div>
+
+                            <div style="height:86px;overflow:hidden;text-align:justify" class="text_4_line">
+                                <a href="https://www.tqsqk7.edu.vn/truong-quan-su-quan-khu-7-tu-hao-truyen-thong-don-vi-anh-hung-(12-12-1945-12-12-2025)-cme-p.html" class="text_body" title="Trường Quân sự Quân khu 7 tự hào truyền thống đơn vị Anh hùng (12/12/1945 – 12/12/2025)">
+
+
+                                    <div style="display:flex;align-items:center">
+
+
+                                        <div>
+                                            <b>Trường Quân sự Quân khu 7 tự hào truyền thống đơn vị Anh hùng (12/12/1945 – 12/12/2025)</b>
+                                        </div>
+
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div style="display:grid;grid-template-columns:133px auto;grid-gap:12px;margin-bottom:20px;position:relative">
+
+                            <div style="position:absolute;top:0;bottom:0;left:0;width:10px;z-index:1;display:none" class="bg_red left_border">
+                            </div>
+
+                            <div style="width:133px;height:86px;overflow:hidden" class="bg_black img-hover-zoom">
+                                <img src="https://www.tqsqk7.edu.vn/upload/thumb/11_638847487709983107___266.png" id="imgThumb" style="width:100%" class="border_black">
+                            </div>
+
+                            <div style="height:86px;overflow:hidden;text-align:justify" class="text_4_line">
+                                <a href="https://www.tqsqk7.edu.vn/ky-niem-cua-nguoi-linh-sinh-vien-eas-p.html" class="text_body" title="KỶ NIỆM CỦA NGƯỜI &quot;LÍNH SINH VIÊN&quot;">
+
+
+                                    <div style="display:flex;align-items:center">
+
+
+                                        <div>
+                                            <b>KỶ NIỆM CỦA NGƯỜI “LÍNH SINH VIÊN”</b>
+                                        </div>
+
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div style="display:grid;grid-template-columns:133px auto;grid-gap:12px;margin-bottom:20px;position:relative">
+
+                            <div style="position:absolute;top:0;bottom:0;left:0;width:10px;z-index:1;display:none" class="bg_red left_border">
+                            </div>
+
+                            <div style="width:133px;height:86px;overflow:hidden" class="bg_black img-hover-zoom">
+                                <img src="https://www.tqsqk7.edu.vn/upload/thumb/11_638847484804717849___266.png" id="imgThumb" style="width:100%" class="border_black">
+                            </div>
+
+                            <div style="height:86px;overflow:hidden;text-align:justify" class="text_4_line">
+                                <a href="https://www.tqsqk7.edu.vn/ky-quan-su-dau-moc-truong-thanh-va-manh-me-eaq-p.html" class="text_body" title="KỲ QUÂN SỰ - DẤU MỐC TRƯỞNG THÀNH VÀ MẠNH MẼ">
+
+
+                                    <div style="display:flex;align-items:center">
+
+
+                                        <div>
+                                            <b>KỲ QUÂN SỰ - DẤU MỐC TRƯỞNG THÀNH VÀ MẠNH MẼ</b>
+                                        </div>
+
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                  
+                </div>
+            </div>
+        </div>
+
+
+
+       
+        <div id="footerDiv">
+           
+
+            <div style="width:100%;text-align:center;" class="footer_2_bg">
+                <div id="footer2ContainerDiv" class="inner_body">
+                    <div style="display:grid;grid-template-columns: min-content auto;grid-gap:20px">
+                        <div>
+                            <a href="/">
+                                <img src="/images/footer/logo.png" id="imgLogoFooter">
+                            </a>
+                        </div>
+
+                        <div style="padding-top:10px">
+                            <div class="text_footer_large" style="display:inline-block;margin-bottom:15px">
+                                NGÀNH MÔI TRƯỜNG PHÒNG KHQS QUÂN KHU 7
+                            </div>
+
+                            <div style="margin-bottom:10px;" class="text_white">
+                                <b>Địa chỉ: Thành phồ Hồ Chí Minh</b>
+                            </div>
+
+                            <div style="margin-bottom:10px" class="text_white">
+                                <b>Điện thoại: 069.000.000</b>
+                            </div>
+
+                            <div style="margin-bottom:0px" class="text_white">
+                                <b>Email: <a href="mailto:mail@khqs.qk7.vn" class="text_white">mail@khqs.qk7.vn</a></b>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="footerOtherDiv">
+                        <div style="">
+
+                         
+                        </div>
+
+                        <div id="footerStatDiv">
+                            <div style="display:grid;grid-template-columns:1fr auto;grid-gap:10px;align-items:center;margin-bottom:15px">
+                                <div class="text_white text_16">
+                                    <b>ĐANG TRỰC TUYẾN:</b>
+                                </div>
+
+                                <div class="text_red text_16" style="font-weight:800">
+                                    <b>13</b>
+                                </div>
+                            </div>
+
+                            <div style="display:grid;grid-template-columns:1fr auto;grid-gap:10px;align-items:center;margin-bottom:0px">
+                                <div class="text_white text_16">
+                                    <b>LƯỢT TRUY CẬP:</b>
+                                </div>
+
+                                <div class="text_yellow text_16">
+                                    <b>1.447.624</b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="width:100%" class="footer_3_bg">
+                <div class="inner_body" style="display:grid;grid-template-columns:auto 1fr auto;grid-gap:10px;padding-top:10px;padding-bottom:10px">
+                    <div class="text_yellow" style="text-align:left">
+                        <b>© 2025 Bản quyền thuộc về Phòng KHQS Quân khu 7</b>
+                    </div>
+
+                    <div>
+                    </div>
+
+                    <div>
+                        <a href="" target="_blank" class="text_yellow">
+                            <b>Viện CNNĐ</b>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div id="mainIframeContainer" style="position:fixed;top:0;left:0;bottom:0;right:0px;background: rgba(0,0,0,0.7);z-index:100;display:none">
+            <div style="position:absolute;z-index:-1;
+                top:50%;left:50%;
+                transform: translate(-50%,-50%);
+                -ms-transform: translate(-50%,-50%);
+                -moz-transform: translate(-50%,-50%);
+                -webkit-transform: translate(-50%,-50%);
+                -o-transform: translate(-50%,-50%);">
+                <img src="https://www.tqsqk7.edu.vn/upload/thumb/loading51.gif">
+            </div>
+
+            <div style="width:100%;height:100%;opacity:1;display:flex;align-items:center;justify-content:center;z-index:1" id="mainIframeInnerContainer">
+                <iframe id="mainIframe" class="main_iframe_default" src="./Cổng TTĐT Trường Quân sự Quân khu 7_files/saved_resource.html"></iframe>
+            </div>
+        </div>
+
+        <div id="toastDiv"></div>
+</body>

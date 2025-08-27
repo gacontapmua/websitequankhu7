@@ -1,0 +1,201 @@
+﻿@using BlazorBlogsLibrary.Data.Models;
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Identity;
+@using BlazorBlogs.Data;
+@using BlazorBlogs.Data.Models;
+@using System.Drawing;
+@inject NavigationManager navigationManager
+@inject UserManager<ApplicationUser> _UserManager
+@inject RoleManager<IdentityRole> _RoleManager
+@inject BlogsService _BlogsService
+@inject GeneralSettingsService _GeneralSettingsService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IHttpContextAccessor httpContextAccessor
+@inject IConfiguration _configuration
+@inherits OwningComponentBase<BlogsService>
+
+@if (ShowCampainEditPopup)
+{
+    <div class="modal" tabindex="-1" style="display:block;background-color:gainsboro" role="dialog">
+        <div class="modal-dialog-scrollable modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Edit Newsletter Campaign</h3>
+                    <!-- Button to close the popup -->
+                    <button type="button" class="close"
+                    @onclick="ClosePopup">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <!-- Edit form for the current Blog -->
+                <div class="modal-body">
+                    <b>Campaign: </b><i>@SelectedNewslettersCampain.NewsletterCampainName</i>
+                    <br /><br />
+                    <b>Emails to send:</b> @EmailsToSend
+                    <br /><br />
+                    <button class="btn btn-danger"
+                    @onclick="ProcessCampain">
+                        Process Campain
+                    </button>
+                    <span>&nbsp;&nbsp;</span>
+                    <button class="btn btn-success"
+                    @onclick="TestCampain">
+                        Test Campain
+                    </button>
+                    <span style="color:red">@strError</span>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    // AuthenticationState is available as a CascadingParameter
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+
+    NewslettersCampain SelectedNewslettersCampain;
+    public bool ShowCampainEditPopup = false;
+
+    public System.Security.Claims.ClaimsPrincipal CurrentUser;
+
+    List<string> colUsers = new List<string>();
+    List<string> colSubscriberUsersInCampaign = new List<string>();
+    List<string> colUsersNotInCampaign = new List<string>();
+
+    Dictionary<string, string> EmailContents = new Dictionary<string, string>();
+    int EmailsToSend = 0;
+
+    string strError;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Get the current user
+        CurrentUser = (await authenticationStateTask).User;
+
+        _BlogsService = (BlogsService)ScopedServices.GetService(typeof(BlogsService));
+    }
+
+    void ClosePopup()
+    {
+        // Close the Popup
+        ShowCampainEditPopup = false;
+    }
+
+    public async Task EditNewslettersCampain(NewslettersCampain paramNewslettersCampain)
+    {
+        SelectedNewslettersCampain = paramNewslettersCampain;
+
+        // Clear any error messages
+        strError = "";
+
+        colUsers = await _BlogsService.GetSubscriberUsersAsync();
+        colSubscriberUsersInCampaign = await _BlogsService.GetSubscriberUsersInCampaignAsync(SelectedNewslettersCampain.Id);
+
+        // Create a list of users that are not in the campaign
+        colUsersNotInCampaign = new List<string>();
+        foreach (var strUser in colUsers)
+        {
+            if (!colSubscriberUsersInCampaign.Contains(strUser))
+            {
+                colUsersNotInCampaign.Add(strUser);
+            }
+        }
+
+        EmailsToSend = colUsersNotInCampaign.Count();
+
+        // Get the contents of the email
+        EmailContents = await _BlogsService.GetNewslettersCampainEmailContentsAsync(SelectedNewslettersCampain.Id);
+
+        // Open the Popup
+        ShowCampainEditPopup = true;
+        StateHasChanged();
+    }
+
+    private async Task TestCampain()
+    {
+        var objGeneralSettings = await _GeneralSettingsService.GetGeneralSettingsAsync();
+        List<string> colTestUsers = new List<string>();
+        colTestUsers.Add(objGeneralSettings.SMTPFromEmail);
+        await SendEmails(colTestUsers);
+        strError = "Test Email Sent!";
+    }
+
+    private async Task ProcessCampain()
+    {
+        await SendEmails(colUsersNotInCampaign);
+    }
+
+    private async Task SendEmails(List<string> paramUsersNotInCampaign)
+    {
+        // Clear any error messages
+        strError = "";
+
+        var objGeneralSettings = await _GeneralSettingsService.GetGeneralSettingsAsync();
+        var SendEmailCounter = paramUsersNotInCampaign.Count();
+        string NewsletterEmailContents = EmailContents.FirstOrDefault().Value;
+        string NewsletterEmailSubject = EmailContents.FirstOrDefault().Key;
+
+        // Get the URL of web appliacation from the http context
+        string strWebApplicationUrl = httpContextAccessor.HttpContext.Request.Scheme + "://" + httpContextAccessor.HttpContext.Request.Host.Value;
+
+        // Get the images in the Newsletter
+        Dictionary<string, Image> colImages = new Dictionary<string, Image>();
+
+        string SiteURL = navigationManager.BaseUri;
+        NewsletterParser objNewsletterParser = new NewsletterParser();
+        var colNewsletterContents = objNewsletterParser.ParseHtmlImageLinks(NewsletterEmailContents).Where(x => x.ContentType == "Url");
+
+        // Loop through the images and download them
+        foreach (var objNewsletterContent in colNewsletterContents)
+        {
+            // Get the image
+            string ImageURL = $"{strWebApplicationUrl}//{objNewsletterContent.Content}";
+
+            // Download the image
+            var objDownloadedImage = objNewsletterParser.DownloadImageFromUrl(ImageURL);
+
+            colImages.Add(objNewsletterContent.Content, objDownloadedImage);
+        }
+
+        for (int i = 0; i < SendEmailCounter; i++)
+        {
+            try
+            {
+                // Pause for one second
+                await Task.Delay(1000);               
+
+                // Send the email
+                await _BlogsService.SendNewslettersCampainEmailAsync(paramUsersNotInCampaign[i], SelectedNewslettersCampain, NewsletterEmailContents, colImages, NewsletterEmailSubject, objGeneralSettings.SMTPFromEmail, SiteURL);
+                
+                StateHasChanged();
+                EmailsToSend--;
+            }
+            catch(Exception ex)
+            {
+                await LogAction("Newsletter Campain Email: " + paramUsersNotInCampaign[i] + " " + ex.Message);
+            }
+        }           
+    }
+
+    private async Task LogAction(string strAction)
+    {
+        // Get the current user
+        var CurrentUser = (await authenticationStateTask).User;
+
+        BlazorBlogs.Data.Models.Logs objLog = new BlazorBlogs.Data.Models.Logs();
+        objLog.LogDate = DateTime.Now;
+        objLog.LogAction = strAction;
+        objLog.LogUserName = (CurrentUser.Identity != null) ? CurrentUser.Identity.Name : "";
+        try
+        {
+            objLog.LogIpaddress = httpContextAccessor.HttpContext.Connection?.RemoteIpAddress.ToString();
+        }
+        catch
+        {
+            objLog.LogIpaddress = "127.0.0.1";
+        }
+
+        var result = await @Service.CreateLogAsync(objLog);
+    }
+}
