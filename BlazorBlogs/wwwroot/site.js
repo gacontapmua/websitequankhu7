@@ -93,7 +93,7 @@ function doAjaxLogout() {
             d.close();
             if (msg == 'OK') {
                 //reloadPageAjax();
-                self.location.href = 'https://www.tqsqk7.edu.vn/';
+                self.location.href = '/';
             }
 
             //autoReconnect = true;
@@ -500,7 +500,7 @@ function showHelp(sender, controlId) {
 
     $.get(pageUrl, function (data) {
 
-        var html2 = data.replace(/\<\%=PathPrefix\%\>/gi, 'https://www.tqsqk7.edu.vn/');
+        var html2 = data.replace(/\<\%=PathPrefix\%\>/gi, '/');
 
         tempDiv.html(html2); // Insert the HTML content into the temporary <div>
 
@@ -1070,7 +1070,7 @@ j2(function () {
         stagePadding: 0,
         responsiveClass: true,
         dots: false,
-        navText: ['<div><img src="https://www.tqsqk7.edu.vn/skin/defaultskin/images/layout/prev.png" width=15 height=46 border=0 style="display:block;margin-left:10px" /></div>', '<div><img src="https://www.tqsqk7.edu.vn/skin/defaultskin/images/layout/next.png" width=15 height=46 border=0 style="display:block;margin-right:10px" /></div>'],
+        navText: ['<div><img src="images/layout/prev.png" width=15 height=46 border=0 style="display:block;margin-left:10px" /></div>', '<div><img src="https://www.tqsqk7.edu.vn/skin/defaultskin/images/layout/next.png" width=15 height=46 border=0 style="display:block;margin-right:10px" /></div>'],
         singleItem: true,
         responsive: {
             0: {

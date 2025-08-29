@@ -1148,7 +1148,7 @@ hr {
 }
 
 .calendar_txt {
-    background: url('https://www.tqsqk7.edu.vn/skin/defaultskin/images/icon/calendar24.png');
+    background: url('/images/icon/calendar24.png');
     background-repeat: no-repeat;
     background-position: 8px center;
     padding-left: 36px;
@@ -2410,7 +2410,7 @@ p {
 }
 
 .button_search {
-    background-image: url(https://www.tqsqk7.edu.vn/skin/defaultskin/images/header/search_icon.png);
+    background-image: url(/images/header/search_icon.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

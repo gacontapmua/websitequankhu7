@@ -15,6 +15,7 @@
 <RadzenComponents @rendermode="InteractiveServer" />
 <BlazoredToasts />
 <div class="header-container" style="overflow-x:hidden">
+
     <div class="header-bg">
         <div id="mainHeaderBgDiv"></div>
     </div>
@@ -23,6 +24,7 @@
     <div class="inner_body">
         <div id="mainMenuDiv" style="display:grid;grid-template-columns:52px auto auto auto auto auto auto auto auto ;grid-gap:0px;align-items:center;height:49px">
             <div class="top_menu_item top_menu_item_active" id="homeMenuDiv">
+               
                 <a href="/">
                     <img src="/images/header/home_icon.png">
                 </a>
@@ -51,7 +53,7 @@
 
             <div class="top_menu_item" id="4MenuOuterContainer" onmouseover="javascript:showMenu('4MenuContainer', '4MenuItemContainer');" onmouseout="javascript:hideMenu();">
                 <div>
-                    <a href="https://www.tqsqk7.edu.vn/giao-duc,-boi-duong-qp%2526ampan-pg-i/">
+                    <a href="Documents">
                         <div id="4MenuContainer" class="noClickCount text_menu">
                             VĂN BẢN<div id="downArrowDiv" class="down_arrow"></div>
                         </div>
@@ -60,32 +62,192 @@
             </div>
             <div style="text-align:center">
                 <div style="display:inline-block;">
-                    <a href="dangnhap" class="text_menu">ĐĂNG NHẬP</a>
+                    <a href="Login" class="text_menu">ĐĂNG NHẬP</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="page">
-      <main>       
-        <div style="width: 50%; margin: 0 auto;">
-            @((MarkupString)objGeneralSettings.ApplicationHeader)
+<div style="width:100%">
+    <div class="inner_body glow-effect" style="background-color:#f4f4f4;padding-top:7px;padding-bottom:7px;border-bottom:1px solid #a3c3b1">
+        <div style="display:grid;grid-template-columns:auto 1fr auto;align-items:center">
+
+            <style>
+
+            </style>
+            <div style="" id="topBreadCrumbs" class="text_body">
+                <div style="display:inline-block"><a class="text_body" href="/" target="_self" title="Cổng TTĐT Ngành môi trường Phòng KHQSQK7">Bạn đang ở <b>Trang chủ</b></a></div>
+            </div>
+
+            <div>
+            </div>
+
+            <div style="position:relative" id="desktopSearchDiv">
+                <input type="text" id="txtSearch1" style="width:300px;height:32px;padding-right:35px" maxlength="100" value="">
+
+                <div style="position:absolute;right:0;top:0">
+                    <input type="button" id="btnSearch1" class="button_search" onclick="doSearch(&#39;txtSearch1&#39;)">
+                </div>
+            </div>
         </div>
-        <article @ref="@disqusBody" class="content px-4">
-            @Body
-            @if (Convert.ToBoolean(objGeneralSettings.DisqusEnabled))
-            {
-                <div id="disqus_thread" style="@((!DisqusState.getDisplayDisqus()) ? "display: none;" : "")"></div>
+
+    </div>
+</div>
+<script>
+
+    $(function () {
+
+        $("#txtSearch1").keyup(function (event) {
+            if (event.keyCode === 13) {
+                doSearch('txtSearch1');
             }
-        </article>
-    </main>
+        });
+
+        $("#txtSearch2").keyup(function (event) {
+            if (event.keyCode === 13) {
+                doSearch('txtSearch2');
+            }
+        });
+
+        var postGroupId = eval('-1');
+
+        if (postGroupId > 0)
+        {
+            $('#-1MenuOuterContainer').addClass('top_menu_item_active');
+        }
+        else {
+            $('#homeMenuDiv').addClass('top_menu_item_active');
+        }
+    });
+
+    function showMobileMenu(event) {
+        event.stopPropagation();
+
+        $('#mobileMenuItemDiv').toggle();
+
+        $('.header_submenu_panel').each(function (i, e) {
+            if ($(e).attr('id') != 'mobileMenuItemDiv') {
+                $(e).hide();
+            }
+        });
+
+    }
+
+    function doSearch(txtSearchId)
+    {
+        var keyword = $.trim($('#' + txtSearchId).val().replace(/(\.+|\(|\)|\/)/gi, '')).toLowerCase();
+
+        if (keyword.length == 0) {
+            alert('Xin nhập từ khóa để tìm kiếm');
+            $('#' + txtSearchId).focus();
+        }
+
+        else if (keyword.length > 100) {
+            alert('Từ cần tìm quá dài!');
+            $('#' + txtSearchId).focus();
+        }
+        else {
+            var urlText = '/';
+            var url = urlText + urlEncode(keyword) + '-s.html';
+            self.location.href = url;
+        }
+    }
+</script>
+
+
+<div class="inner_body glow-effect bg_white" style="padding-top:20px;padding-bottom:20px">
+    <div class="main_2_columns_layout">
+        <!--Phần hiển thị nội dung thay đổi-->
+         @Body
+        <LeftSidebar /> 
+    </div>
 </div>
 
+
+<div id="footerDiv">
+
+
+    <div style="width:100%;text-align:center;" class="footer_2_bg">
+        <div id="footer2ContainerDiv" class="inner_body">
+            <div style="display:grid;grid-template-columns: min-content auto;grid-gap:20px">
+                <div>
+                    <a href="/">
+                        <img src="/images/footer/logo.png" id="imgLogoFooter">
+                    </a>
+                </div>
+
+                <div style="padding-top:10px">
+                    <div class="text_footer_large" style="display:inline-block;margin-bottom:15px">
+                        NGÀNH MÔI TRƯỜNG PHÒNG KHQS QUÂN KHU 7
+                    </div>
+
+                    <div style="margin-bottom:10px;" class="text_white">
+                        <b>Địa chỉ: Thành phồ Hồ Chí Minh</b>
+                    </div>
+
+                    <div style="margin-bottom:10px" class="text_white">
+                        <b>Điện thoại: 069.000.000</b>
+                    </div>
+
+                    <div style="margin-bottom:0px" class="text_white">
+                        <b>Email: <a href="mailto:mail@khqs.qk7.vn" class="text_white">mail@khqs.qk7.vn</a></b>
+                    </div>
+                </div>
+            </div>
+
+            <div id="footerOtherDiv">
+                <div style="">
+                </div>
+
+                <div id="footerStatDiv">
+                    <div style="display:grid;grid-template-columns:1fr auto;grid-gap:10px;align-items:center;margin-bottom:15px">
+                        <div class="text_white text_16">
+                            <b>ĐANG TRỰC TUYẾN:</b>
+                        </div>
+
+                        <div class="text_red text_16" style="font-weight:800">
+                            <b>13</b>
+                        </div>
+                    </div>
+
+                    <div style="display:grid;grid-template-columns:1fr auto;grid-gap:10px;align-items:center;margin-bottom:0px">
+                        <div class="text_white text_16">
+                            <b>LƯỢT TRUY CẬP:</b>
+                        </div>
+
+                        <div class="text_yellow text_16">
+                            <b>1.447.624</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="width:100%" class="footer_3_bg">
+        <div class="inner_body" style="display:grid;grid-template-columns:auto 1fr auto;grid-gap:10px;padding-top:10px;padding-bottom:10px">
+            <div class="text_yellow" style="text-align:left">
+                <b>© 2025 Bản quyền thuộc về Phòng KHQS Quân khu 7</b>
+            </div>
+
+            <div>
+            </div>
+
+            <div>
+                <a href="" target="_blank" class="text_yellow">
+                    <b>Viện CNNĐ</b>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+@*
 <div id="blazor-error-ui" data-nosnippet>
     An unhandled error has occurred.
     <a href="." class="reload">Reload</a>
     <span class="dismiss">🗙</span>
 </div>
+*@
 
 @code {
     // ********************************
